@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Simple EC2 instance template for validation test
+
+Resources:
+  MyInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-0abcdef1234567890    # Replace with a valid AMI in your region
+      InstanceType: t3.micro
+      KeyName: MyKeyPair                # Replace with your real key pair name
+      SubnetId: subnet-0123456789abcdef # Replace with a subnet in your VPC
+      SecurityGroupIds:
+        - sg-0123456789abcdef           # Replace with a valid security group ID
+      BlockDeviceMappings:
+        - DeviceName: /dev/xvda
+          Ebs:
+            VolumeSize: 20
+            VolumeType: gp3
+            DeleteOnTermination: true
+      Tags:
+        - Key: Name
+          Value: ValidYAMLInstance

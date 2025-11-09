@@ -1,0 +1,7 @@
+Resources:
+  Instance:
+    Type: AWS::EC2::Instance
+    Properties: {}
+  Instance2:
+    Type: AWS::EC2::Instance
+    Properties: {}
